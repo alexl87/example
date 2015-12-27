@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>prova</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function load(){
+            alert("ciao");
+            $.ajax({"GET","/example/Control.php?","something=ciao",success:function(xml){
+                $("#tabella").append("<tr><td>".xml['list']['element'][0]."</td></tr>");
+            }})
+        }
+    </script>
+</head>
+<body onload="load()">
+<table>
+   <thead>
+   <th>readProva()</th>
+   </thead>
+    <tbody id="tabella">
+
+    </tbody>
+</table>
+
+
+</body>
+</html>

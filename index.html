@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body onload="loaddoc()">
+<table>
+    <thead>
+    <tr><th>readProva()</th></tr>
+    </thead>
+    <tbody id="tabella">
+
+    </tbody>
+</table>
+
+</body>
+<script type="text/javascript">
+    function loaddoc(){
+
+        $.ajax({type:"GET",url:"/example/Control.php?something=ciao",dataType: "xml",success:function(xml){
+            $(xml).find('element').each(function(){
+                $("#tabella").append("<tr><td>"+$(this).text() + "</td></tr>");
+            });
+        }})
+    }
+</script>
+</html>
